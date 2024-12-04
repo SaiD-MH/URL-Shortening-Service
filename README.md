@@ -35,7 +35,7 @@ This system supports:
 ### **Core Components**
 1. **User Input (Frontend)**: Users provide a long URL to be shortened.
 2. **Backend (Spring Boot Service)**: The service accepts the long URL and generates a unique short URL.
-3. **Redis Cache**: Used to cache the mappings for faster lookups.
+3. **Redis Cache**: Used to cache the mappings for faster lookup.
 4. **Database**: Stores the mapping of short URLs to long URLs.
 5. **Redirect Logic**: Once a short URL is accessed, the backend retrieves the long URL from either the cache or the database and redirects the user.
 
@@ -48,6 +48,7 @@ This system supports:
 
 ## **Assumptions and Design Decisions**
 
+- **Single Server:** This application will not be scaled for several servers, Just one Server so no Load Balancing or Multi-Database nodes are considered 
 - **Unique Short URLs:** We use a base62 encoding system to generate short URLs from long URLs. The short URL is unique, ensuring no two long URLs are mapped to the same short URL.
 - **Cache Expiration:** TTL (Time-to-Live) was not used for caching as URLs are meant to persist indefinitely. Instead, Redis eviction policies like **LRU (Least Recently Used)** are relied upon to manage memory when cache size exceeds limits.
 - **URL Customization:** Users are allowed to customize their short URLs, providing a more user-friendly experience.
