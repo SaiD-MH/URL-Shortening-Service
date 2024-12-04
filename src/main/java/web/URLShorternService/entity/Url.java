@@ -1,9 +1,13 @@
 package web.URLShorternService.entity;
 
 import jakarta.persistence.*;
+import org.springframework.data.redis.core.RedisHash;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "url")
+//@RedisHash("urls")
 public class Url {
 
 

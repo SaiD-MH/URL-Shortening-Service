@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import web.URLShorternService.entity.Url;
 
 @Repository
-public interface UrlRepository extends JpaRepository<Url, Long> {
+public interface UriRepo extends JpaRepository<Url, Long> {
 
     Url findByShortUrl(String id);
 }
